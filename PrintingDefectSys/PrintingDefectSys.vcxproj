@@ -38,7 +38,7 @@
       <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</GenerateDebugInformation>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">IlmImfd.lib;libjasperd.lib;libjpegd.lib;libpngd.lib;libtiffd.lib;opencv_calib3d2410.lib;opencv_calib3d2410d.lib;opencv_contrib2410.lib;opencv_contrib2410d.lib;opencv_core2410.lib;opencv_core2410d.lib;opencv_features2d2410.lib;opencv_features2d2410d.lib;opencv_flann2410.lib;opencv_flann2410d.lib;opencv_gpu2410.lib;opencv_gpu2410d.lib;opencv_highgui2410.lib;opencv_highgui2410d.lib;opencv_imgproc2410.lib;opencv_imgproc2410d.lib;opencv_legacy2410.lib;opencv_legacy2410d.lib;opencv_ml2410.lib;opencv_ml2410d.lib;opencv_nonfree2410.lib;opencv_nonfree2410d.lib;opencv_objdetect2410.lib;opencv_objdetect2410d.lib;opencv_ocl2410.lib;opencv_ocl2410d.lib;opencv_photo2410.lib;opencv_photo2410d.lib;opencv_stitching2410.lib;opencv_stitching2410d.lib;opencv_superres2410.lib;opencv_superres2410d.lib;opencv_ts2410.lib;opencv_ts2410d.lib;opencv_video2410.lib;opencv_video2410d.lib;opencv_videostab2410.lib;opencv_videostab2410d.lib;zlibd.lib;qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">IlmImf.lib;libjasper.lib;libjpeg.lib;libpng.lib;libtiff.lib;opencv_calib3d2410.lib;opencv_contrib2410.lib;opencv_core2410.lib;opencv_features2d2410.lib;opencv_flann2410.lib;opencv_gpu2410.lib;opencv_highgui2410.lib;opencv_imgproc2410.lib;opencv_legacy2410.lib;opencv_ml2410.lib;opencv_nonfree2410.lib;opencv_objdetect2410.lib;opencv_ocl2410.lib;opencv_photo2410.lib;opencv_stitching2410.lib;opencv_superres2410.lib;opencv_ts2410.lib;opencv_video2410.lib;opencv_videostab2410.lib;zlib.lib;qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <InputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FullPath)</InputFile>
@@ -100,7 +100,7 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>IlmImfd.lib;libjasperd.lib;libjpegd.lib;libpngd.lib;libtiffd.lib;opencv_calib3d2410.lib;opencv_calib3d2410d.lib;opencv_contrib2410.lib;opencv_contrib2410d.lib;opencv_core2410.lib;opencv_core2410d.lib;opencv_features2d2410.lib;opencv_features2d2410d.lib;opencv_flann2410.lib;opencv_flann2410d.lib;opencv_gpu2410.lib;opencv_gpu2410d.lib;opencv_highgui2410.lib;opencv_highgui2410d.lib;opencv_imgproc2410.lib;opencv_imgproc2410d.lib;opencv_legacy2410.lib;opencv_legacy2410d.lib;opencv_ml2410.lib;opencv_ml2410d.lib;opencv_nonfree2410.lib;opencv_nonfree2410d.lib;opencv_objdetect2410.lib;opencv_objdetect2410d.lib;opencv_ocl2410.lib;opencv_ocl2410d.lib;opencv_photo2410.lib;opencv_photo2410d.lib;opencv_stitching2410.lib;opencv_stitching2410d.lib;opencv_superres2410.lib;opencv_superres2410d.lib;opencv_ts2410.lib;opencv_ts2410d.lib;opencv_video2410.lib;opencv_video2410d.lib;opencv_videostab2410.lib;opencv_videostab2410d.lib;zlibd.lib;qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>IlmImfd.lib;libjasperd.lib;libjpegd.lib;libpngd.lib;libtiffd.lib;opencv_calib3d2410d.lib;opencv_contrib2410d.lib;opencv_core2410d.lib;opencv_features2d2410d.lib;opencv_flann2410d.lib;opencv_gpu2410d.lib;opencv_highgui2410d.lib;opencv_imgproc2410d.lib;opencv_legacy2410d.lib;opencv_ml2410d.lib;opencv_nonfree2410d.lib;opencv_objdetect2410d.lib;opencv_ocl2410d.lib;opencv_photo2410d.lib;opencv_stitching2410d.lib;opencv_superres2410d.lib;opencv_ts2410d.lib;opencv_video2410d.lib;opencv_videostab2410d.lib;zlibd.lib;qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
@@ -118,7 +118,7 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="img_registration.cpp" />
+    <ClCompile Include="img_pair_process.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="printing_defect_sys.cpp" />
     <ClCompile Include="registration_sift.cpp" />
@@ -134,6 +134,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="color_hist_compare.h" />
+    <ClInclude Include="defect.h" />
+    <ClInclude Include="img_pair_process.h" />
     <ClInclude Include="img_registration.h" />
     <ClInclude Include="registration_sift.h" />
   </ItemGroup>

@@ -9,12 +9,10 @@
 #include "img_registration.h"
 #include<vector>
 
-#define SHOW_TEST_IMAGE
-
 class RegistrationSift : public ImgRegistration{
 public:
-	RegistrationSift(cv::Mat const &tmpl, cv::Mat &test);
-	RegistrationSift(std::string const &tmpl_file, std::string const &test_file);
+	RegistrationSift(cv::Mat const &tmpl, cv::Mat const &test) :ImgRegistration(tmpl, test) {};
+	RegistrationSift(std::string const &tmpl_file, std::string const &test_file) :ImgRegistration(tmpl_file, test_file) {};
 
 	void DetectFeaturePoints();
 	void ShowMatchedFeatures();

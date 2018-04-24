@@ -66,7 +66,7 @@
     <ClCompile Include="printing_defect_sys.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="img_registration.cpp">
+    <ClCompile Include="img_pair_process.cpp">
       <Filter>Source Files\BaseClass</Filter>
     </ClCompile>
     <ClCompile Include="registration_sift.cpp">
@@ -96,7 +96,13 @@
       <Filter>Header Files\ChildClass</Filter>
     </ClInclude>
     <ClInclude Include="color_hist_compare.h">
-      <Filter>Source Files\BaseClass</Filter>
+      <Filter>Header Files\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="defect.h">
+      <Filter>Header Files\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="img_pair_process.h">
+      <Filter>Header Files\BaseClass</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
