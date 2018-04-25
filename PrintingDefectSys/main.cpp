@@ -1,8 +1,8 @@
 #define SHOW_TEST_IMAGE
 #include "printing_defect_sys.h"
 #include <QtWidgets/QApplication>
+#include "registration_asift.h"
 #include "registration_sift.h"
-
 
 int main(int argc, char *argv[])
 {
@@ -11,9 +11,9 @@ int main(int argc, char *argv[])
 	SIFT_Test w;
 	w.show();
 	*/
-	RegistrationSift p = RegistrationSift("E:\\test\\hs1.png", "E:\\test\\hs2.png");
-	p.DetectFeaturePoints();
-	p.RegistrateTestImg();
-	p.ShowMatchedFeatures();
+	RegistrationASift asift_p = RegistrationASift("E:\\test\\test1.png", "E:\\test\\test2.png");
+	asift_p.RegistrateTestImg();
+
+
 	return a.exec();
 }

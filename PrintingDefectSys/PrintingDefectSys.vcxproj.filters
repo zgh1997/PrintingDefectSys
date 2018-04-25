@@ -72,6 +72,12 @@
     <ClCompile Include="registration_sift.cpp">
       <Filter>Source Files\ChildClass</Filter>
     </ClCompile>
+    <ClCompile Include="utils_registration.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="registration_asift.cpp">
+      <Filter>Source Files\ChildClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="printing_defect_sys.h">
@@ -103,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="img_pair_process.h">
       <Filter>Header Files\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="utils_registration.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="registration_asift.h">
+      <Filter>Header Files\ChildClass</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

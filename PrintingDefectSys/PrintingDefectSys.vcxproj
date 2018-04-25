@@ -121,7 +121,9 @@
     <ClCompile Include="img_pair_process.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="printing_defect_sys.cpp" />
+    <ClCompile Include="registration_asift.cpp" />
     <ClCompile Include="registration_sift.cpp" />
+    <ClCompile Include="utils_registration.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="printing_defect_sys.h" />
@@ -137,7 +139,9 @@
     <ClInclude Include="defect.h" />
     <ClInclude Include="img_pair_process.h" />
     <ClInclude Include="img_registration.h" />
+    <ClInclude Include="registration_asift.h" />
     <ClInclude Include="registration_sift.h" />
+    <ClInclude Include="utils_registration.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
