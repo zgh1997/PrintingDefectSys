@@ -1,5 +1,4 @@
 #include "registration_sift.h"
-#define FEATURE_POINT_NUM 200
 //#define SHOW_TEST_IMAGE
 
 /*******供给外部调用*******/
@@ -10,6 +9,7 @@
 void RegistrationSift::DetectFeaturePoints(const cv::Mat& img, cv::Mat& dest, std::vector<cv::KeyPoint>& keypoints , cv::Mat& descriptors)
 {
 	// 预处理：高斯滤波,便于准确提取尺度不变特征
+	//cv::cvtColor(img, dest, CV_RGB2GRAY);
 	GaussianBlur(img, dest, cv::Size(3, 3), 0.5);
 	//提取特征点
 	std::vector<cv::KeyPoint> points;
@@ -66,10 +66,11 @@ void RegistrationSift::RegistrateTestImg()
 	warpPerspective(this->_test_dest, imageTransform1, homo, cv::Size(this->_tmpl_dest.cols, this->_tmpl_dest.rows));
 
 	//获取配准后的差分图像
-	this->_result_img = (this->_tmpl_dest ^ imageTransform1);
+	this->_test_dest = imageTransform1;
+	this->GetDifImg(this->_tmpl_dest , imageTransform1, this->_result_img);
 
 #ifdef SHOW_TEST_IMAGE
-	//显示最符合的20个特征点与变换后的图片
+	//显示匹配特征点与变换后的图片
 	cv::Mat imageOutput;
 	drawMatches(this->_tmpl_dest, _tmpl_keypoints, this->_test_dest, _test_keypoints, matchePoints, imageOutput);
 	cv::namedWindow("Mathch Points", 0);
@@ -86,11 +87,11 @@ void RegistrationSift::ShowResultImg()
 {
 	// Show registration result
 	imshow("配准后差分图像", this->_result_img);
-	cv::Mat tmp_img1, tmp_img2, tmp_img3;
-	cv::cvtColor(_result_img, tmp_img1, cv::COLOR_BGR2GRAY);
-	//cv::threshold(tmp_img1, tmp_img2, 30, 200.0, CV_THRESH_BINARY);
-	cv::erode(tmp_img1, tmp_img3,(3,3),cv::Point(-1,-1),3);
-	imshow("腐蚀后差分图像", tmp_img3);
+	//cv::Mat tmp_img1, tmp_img2, tmp_img3;
+	//cv::cvtColor(_result_img, tmp_img1, cv::COLOR_BGR2GRAY);
+	////cv::threshold(tmp_img1, tmp_img2, 30, 200.0, CV_THRESH_BINARY);
+	//cv::erode(tmp_img1, tmp_img3,(3,3),cv::Point(-1,-1),3);
+	//imshow("腐蚀后差分图像", tmp_img3);
 	cv::waitKey();
 }
 

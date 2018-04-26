@@ -62,7 +62,7 @@ void RegistrationASift::DetectAndCompute(const cv::Mat& img, std::vector< cv::Ke
 	{
 		double t = pow(2, 0.5*tl);
 		// 倾斜角度
-		for (int phi = 0; phi < 180; phi += 72.0 / t)
+		for (int phi = 0; phi < 90; phi += 72.0 / t)
 		{
 			// 临时存储特征点
 			std::vector<cv::KeyPoint> kps;
@@ -74,13 +74,14 @@ void RegistrationASift::DetectAndCompute(const cv::Mat& img, std::vector< cv::Ke
 			AffineSkew(t, phi, timg, mask, Ai);
 #ifdef SHOW_TEST_IMAGE
 			cv::Mat img_disp;
-			cv::bitwise_and(mask, timg, img_disp);
+			//cv::bitwise_and(mask, timg, img_disp);
+			img_disp = mask^timg;
 			cv::namedWindow("Skew", cv::WINDOW_AUTOSIZE);// Create a window for display.
 			cv::imshow("Skew", img_disp);
 			cv::waitKey();
 #endif
 
-			cv::SiftFeatureDetector detector;
+			cv::SiftFeatureDetector detector(FEATURE_POINT_NUM);
 			detector.detect(timg, kps, mask);
 
 			cv::SiftDescriptorExtractor extractor;
@@ -105,7 +106,7 @@ void RegistrationASift::DetectAndCompute(const cv::Mat& img, std::vector< cv::Ke
 void RegistrationASift::ShowResultImg()
 {
 	cv::imshow("配准后差分图像", this->_result_img);
-	cv::waitKey();
+	//cv::waitKey();
 }
 
 // 实现配准
@@ -115,14 +116,20 @@ void RegistrationASift::ShowResultImg()
 void RegistrationASift::RegistrateTestImg()
 {
 	cv::Mat tmpl_desc, test_desc;
-	RegistrationSift sift_detector;
+	//RegistrationSift sift_detector;
 	this->_tmpl_keypoints.clear();
 	this->_test_keypoints.clear();
+	/*
 	sift_detector.DetectFeaturePoints(_tmpl_src, _tmpl_dest, this->_tmpl_keypoints, tmpl_desc);
 	sift_detector.DetectFeaturePoints(_test_src, _test_dest, this->_test_keypoints, test_desc);
+	*/
+	_tmpl_dest = _tmpl_src.clone();
+	_test_dest = _test_src.clone();
+	DetectAndCompute(_tmpl_dest, _tmpl_keypoints, tmpl_desc);
+	DetectAndCompute(_test_dest, _test_keypoints, test_desc);
 
-	//cv::BruteForceMatcher<cv::L2<float>> matcher;
-	cv::FlannBasedMatcher matcher;
+	cv::BruteForceMatcher<cv::L2<float>> matcher;
+	//cv::FlannBasedMatcher matcher;
 	std::vector<cv::DMatch> matchePoints;
 	matcher.match(tmpl_desc, test_desc, matchePoints, cv::Mat());
 
@@ -141,7 +148,7 @@ void RegistrationASift::RegistrateTestImg()
 
 	//获取配准后的差分图像
 	this->_test_dest = imageTransform1;
-	this->_result_img = (this->_tmpl_dest ^ imageTransform1);
+	this->GetDifImg(this->_tmpl_dest, imageTransform1, this->_result_img);
 
 }
 
