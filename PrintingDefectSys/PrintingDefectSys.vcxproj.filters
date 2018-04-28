@@ -58,6 +58,12 @@
     <Filter Include="Source Files\Modules">
       <UniqueIdentifier>{b99ca411-f0e7-4512-8747-44aaa73ee081}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils\OCR">
+      <UniqueIdentifier>{39fea8fe-96d0-401e-9433-e839c120499c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\OCR">
+      <UniqueIdentifier>{03a8fc04-558f-4d4a-8466-272908e992c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -84,6 +90,18 @@
     <ClCompile Include="img_registration.cpp">
       <Filter>Source Files\BaseClass</Filter>
     </ClCompile>
+    <ClCompile Include="bktree.cpp">
+      <Filter>Source Files\Utils\OCR</Filter>
+    </ClCompile>
+    <ClCompile Include="levenshtein.cpp">
+      <Filter>Source Files\Utils\OCR</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\Utils\OCR</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\caffe\layers\ctcpp_entrypoint.cpp">
+      <Filter>Source Files\Utils\OCR</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="printing_defect_sys.h">
@@ -104,9 +122,6 @@
     <ClInclude Include="img_registration.h">
       <Filter>Header Files\BaseClass</Filter>
     </ClInclude>
-    <ClInclude Include="registration_sift.h">
-      <Filter>Header Files\ChildClass</Filter>
-    </ClInclude>
     <ClInclude Include="color_hist_compare.h">
       <Filter>Header Files\BaseClass</Filter>
     </ClInclude>
@@ -119,11 +134,29 @@
     <ClInclude Include="utils_registration.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="registration_asift.h">
-      <Filter>Header Files\ChildClass</Filter>
-    </ClInclude>
     <ClInclude Include="utils_pretreat.h">
       <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="registration_asift.h">
+      <Filter>Header Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="registration_sift.h">
+      <Filter>Header Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="bktree.h">
+      <Filter>Header Files\Utils\OCR</Filter>
+    </ClInclude>
+    <ClInclude Include="levenshtein.h">
+      <Filter>Header Files\Utils\OCR</Filter>
+    </ClInclude>
+    <ClInclude Include="public.h">
+      <Filter>Header Files\Utils\OCR</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\Utils\OCR</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files\Utils\OCR</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
